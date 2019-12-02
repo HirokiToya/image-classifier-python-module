@@ -2,38 +2,45 @@ import gensim
 import json
 import numpy
 import pprint
-from googletrans import Translator
+import requests
+
+api = "https://script.google.com/macros/s/AKfycbxZQrv_KnBzjEGHIYqm9HcGWC7OS-mzAsagPqyZEmgO_XPX2Dhi/exec?text={text}&source=en&target=ja"
 
 
 # Jsonファイルを読み取ります
 def read_params_from_json(path):
-    f = open(path)
-    df = json.loads(f.read())
-    f.close()
-    pprint.pprint(df, width=40)
+  f = open(path)
+  df = json.loads(f.read())
+  f.close()
+  # pprint.pprint(df, width=40)
 
-    return df
+  return df
 
 
 # JSONファイルに書き出します。
 def write_params_to_json(path, data):
-    fp = open('/'.join([path, 'translate.json']), 'w')
-    json.dump(data, fp, cls=MyEncoder)
-    fp.close()
+  fp = open('/'.join([path, 'translate.json']), 'w')
+  json.dump(data, fp, cls=MyEncoder)
+  fp.close()
+
+
+# txtファイルを読み取ります．
+def read_text_file(path):
+  f = open(path)
+  list = f.readlines()
+  f.close()
+
+  return list
 
 
 def split_keyword(word):
-    slashed_words = word.split("/")
-    keywords = slashed_words[0].split("_")
-    return keywords[0]
-
-
-def replace_keyword(word):
-    word.replace('_', ' ').replace('/', ' ')
-    return word
+  slashed_words = word.split("/")
+  keywords = slashed_words[0].split("_")
+  return keywords[0]
 
 
 class MyEncoder(json.JSONEncoder):
+
   def default(self, obj):
     if isinstance(obj, numpy.integer):
       return int(obj)
@@ -47,19 +54,46 @@ class MyEncoder(json.JSONEncoder):
 
 if __name__ == '__main__':
 
-    translator = Translator()
-    # response = translator.translate('Hello', dest='ja')
-    # print(response.text)
+  resnet_labels = read_params_from_json('input/data/label_list.json')
+  imagenet_labels = read_params_from_json('input/data/imagenet1000_clsidx_to_labels.json')
 
-    params = read_params_from_json('data/label_list.json')
+  labels = resnet_labels['labels']
+  result = {}
 
-    labels = params['labels']
+  name = "hello"
+  url = api.format(text=name)
+  r = requests.get(url)
+  print(r.text)
 
-    result = {}
+  # for label in labels:
+  #   name = str(label['name']).replace('_', ' ').replace('/', ' ')
+  #   url = api.format(text=name)
+  #   r = requests.get(url)
+  #   try:
+  #     text = json.loads(r.text)
+  #   except Exception as e:
+  #     result[label['name']] = "error"
+  #     print(label['name'], "error")
+  #   else:
+  #     result[label['name']] = text["text"]
+  #     print(label['name'], text["text"])
+  #
+  # for i in range(0, 999):
+  #   list = imagenet_labels['{0}'.format(i)]
+  #   for label in list:
+  #     name = str(label.replace(' ', '_'))
+  #     url = api.format(text=label)
+  #     r = requests.get(url)
+  #
+  #     try:
+  #       text = json.loads(r.text)
+  #     except Exception as e:
+  #       result[name] = "error"
+  #       print(name, "error")
+  #     else:
+  #       result[name] = text["text"]
+  #       print(name, text["text"])
 
-    for label in labels:
-        response = translator.translate(replace_keyword(label['name']), dest='ja')
-        result[label['name']] = response.text
-
-    pprint.pprint(result)
-    write_params_to_json('output', result)
+  pprint.pprint(result)
+  print('finished')
+  write_params_to_json('output', result)
