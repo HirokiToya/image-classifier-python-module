@@ -3,9 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="859f2524-2fb3-45fb-a505-2d1ad0669663" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images_copy.py" beforeDir="false" afterPath="$PROJECT_DIR$/images_copy.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lexVec.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/translation.py" beforeDir="false" afterPath="$PROJECT_DIR$/translation.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wordnet_similality.py" beforeDir="false" afterPath="$PROJECT_DIR$/wordnet_similality.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../word-similarity/lexVec.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -51,7 +49,7 @@
       <recent name="$PROJECT_DIR$/wordnet" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.similality_reader">
+  <component name="RunManager" selected="Python.wordnet_similality">
     <configuration name="similality" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="python-src" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -164,8 +162,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.similality_reader" />
         <item itemvalue="Python.wordnet_similality" />
+        <item itemvalue="Python.similality_reader" />
         <item itemvalue="Python.wordnet_nltk" />
         <item itemvalue="Python.similality" />
         <item itemvalue="Python.wordnet_installer" />
@@ -217,7 +215,8 @@
       <workItem from="1575878853101" duration="1356000" />
       <workItem from="1576087112714" duration="1959000" />
       <workItem from="1576120506508" duration="9004000" />
-      <workItem from="1576130560625" duration="2293000" />
+      <workItem from="1576130560625" duration="2544000" />
+      <workItem from="1576142982704" duration="841000" />
     </task>
     <servers />
   </component>
@@ -242,29 +241,29 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="184" y="112" key="#com.intellij.execution.impl.EditConfigurationsDialog/-1200.-1020.1200.1920/0.0.1440.900@0.0.1440.900" timestamp="1575874381841" />
-    <state width="1398" height="416" key="GridCell.Tab.0.bottom" timestamp="1576133546504">
+    <state width="1398" height="338" key="GridCell.Tab.0.bottom" timestamp="1576143764681">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state width="1398" height="24" key="GridCell.Tab.0.bottom/-1200.-1020.1200.1920/0.0.1440.900@0.0.1440.900" timestamp="1575880475624" />
-    <state width="1398" height="416" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1576133546504" />
+    <state width="1398" height="338" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1576143764681" />
     <state width="965" height="137" key="GridCell.Tab.0.bottom/0.23.1440.826@0.23.1440.826" timestamp="1576124124052" />
-    <state width="1398" height="416" key="GridCell.Tab.0.center" timestamp="1576133546503">
+    <state width="1398" height="338" key="GridCell.Tab.0.center" timestamp="1576143764680">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state width="1398" height="24" key="GridCell.Tab.0.center/-1200.-1020.1200.1920/0.0.1440.900@0.0.1440.900" timestamp="1575880475622" />
-    <state width="1398" height="416" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1576133546503" />
+    <state width="1398" height="338" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1576143764680" />
     <state width="965" height="137" key="GridCell.Tab.0.center/0.23.1440.826@0.23.1440.826" timestamp="1576124124051" />
-    <state width="1398" height="416" key="GridCell.Tab.0.left" timestamp="1576133546502">
+    <state width="1398" height="338" key="GridCell.Tab.0.left" timestamp="1576143764680">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state width="1398" height="24" key="GridCell.Tab.0.left/-1200.-1020.1200.1920/0.0.1440.900@0.0.1440.900" timestamp="1575880475622" />
-    <state width="1398" height="416" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1576133546502" />
+    <state width="1398" height="338" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1576143764680" />
     <state width="965" height="137" key="GridCell.Tab.0.left/0.23.1440.826@0.23.1440.826" timestamp="1576124124050" />
-    <state width="1398" height="416" key="GridCell.Tab.0.right" timestamp="1576133546503">
+    <state width="1398" height="338" key="GridCell.Tab.0.right" timestamp="1576143764681">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state width="1398" height="24" key="GridCell.Tab.0.right/-1200.-1020.1200.1920/0.0.1440.900@0.0.1440.900" timestamp="1575880475623" />
-    <state width="1398" height="416" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1576133546503" />
+    <state width="1398" height="338" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1576143764681" />
     <state width="965" height="137" key="GridCell.Tab.0.right/0.23.1440.826@0.23.1440.826" timestamp="1576124124051" />
     <state width="1398" height="477" key="GridCell.Tab.1.bottom" timestamp="1576130450828">
       <screen x="0" y="0" width="1440" height="900" />
@@ -291,8 +290,8 @@
     <SUITE FILE_PATH="coverage/python_src$images_copy.coverage" NAME="images_copy Coverage Results" MODIFIED="1575874340095" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/python_src$wordnet_installer__1_.coverage" NAME="wordnet_installer (1) Coverage Results" MODIFIED="1575875006351" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/python_src$wordnet_installer.coverage" NAME="wordnet_installer Coverage Results" MODIFIED="1575880442705" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/python_src$wordnet_similality.coverage" NAME="wordnet_similality Coverage Results" MODIFIED="1576132726739" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/python_src$similality_reader.coverage" NAME="similality_reader Coverage Results" MODIFIED="1576133546493" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/python_src$wordnet_similality.coverage" NAME="wordnet_similality Coverage Results" MODIFIED="1576143764667" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/python_src$download.coverage" NAME="download Coverage Results" MODIFIED="1571052544637" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/python_src$translation.coverage" NAME="translation Coverage Results" MODIFIED="1575343936163" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/python_src$similality.coverage" NAME="similality Coverage Results" MODIFIED="1576089153205" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />

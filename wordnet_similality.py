@@ -1,7 +1,6 @@
 import json
 import numpy
 import pprint
-
 from nltk.corpus import wordnet as wn
 
 
@@ -44,51 +43,29 @@ class MyEncoder(json.JSONEncoder):
 
 if __name__ == '__main__':
 
-  word = "sushi_bar"
-  print(wn.synsets(word))
+  # word = "sushi_bar"
+  # print(wn.synsets(word))
+  #
+  # synsets = wn.synsets(word)
+  # for synset in synsets:
+  #   print(synset.name(), wn.synset(synset.name()).definition())
 
-  synsets = wn.synsets(word)
-  for synset in synsets:
-    print(synset.name(), wn.synset(synset.name()).definition())
+  params = read_params_from_json('input/data/label_list_for_wordnet.json')
+  labels = params['labels']
 
-  # word1 = wn.synset('broadleaf.s.01')
-  # word2 = wn.synset('forest.n.01')
-  # print(word1.path_similarity(word2))
+  all_similarity_list = []
 
+  for label in labels:
+    similarity_list = []
+    for i in range(365):
+      # similarity_list.append(wm_en2.similarity(split_keyword(label['name']), split_keyword(labels[i]['name'])))
+      word1 = wn.synset(label['wordnet_name'])
+      word2 = wn.synset(labels[i]['wordnet_name'])
+      print(word1.path_similarity(word2))
+      similarity_list.append(word1.wup_similarity(word2))
+    all_similarity_list.append(similarity_list)
 
-  # json = read_json("input/data/label_list_for_wordnet.json")
-  # labels = json["labels"]
-  #
-  # new_label_list = []
-  #
-  # for label in labels:
-  #   synsets = wn.synsets(label["name"])
-  #   # print(safe_list_get(synsets, 0, ""))
-  #
-  #   label["wordnet_name"] = safe_list_get(synsets, 0, "")
-  #   print(label)
-  #   new_label_list.append(label)
-  #
-  # result = {}
-  # result["labels"] = new_label_list
-  # pprint.pprint(result)
-
-  # params = read_params_from_json('input/data/label_list_for_wordnet.json')
-  # labels = params['labels']
-  #
-  # all_similarity_list = []
-  #
-  # for label in labels:
-  #   similarity_list = []
-  #   for i in range(365):
-  #     # similarity_list.append(wm_en2.similarity(split_keyword(label['name']), split_keyword(labels[i]['name'])))
-  #     word1 = wn.synset(label['wordnet_name'])
-  #     word2 = wn.synset(labels[i]['wordnet_name'])
-  #     print(word1.path_similarity(word2))
-  #     similarity_list.append(word1.path_similarity(word2))
-  #   all_similarity_list.append(similarity_list)
-  #
-  # result = {}
-  # result['labels'] = all_similarity_list
-  # pprint.pprint(result)
-  # write_params_to_json('output', 'wordnet_similality.json', result)
+  result = {}
+  result['labels'] = all_similarity_list
+  pprint.pprint(result)
+  write_params_to_json('output', 'wordnet_wup_similality.json', result)
