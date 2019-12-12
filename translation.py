@@ -6,20 +6,20 @@ import requests
 
 api = "https://script.google.com/macros/s/AKfycbxZQrv_KnBzjEGHIYqm9HcGWC7OS-mzAsagPqyZEmgO_XPX2Dhi/exec?text={text}&source=en&target=ja"
 
+APIKey = "trnsl.1.1.20191202T051703Z.9ec2241a35d55234.52e9f7b1c3f923628b2537d4e6013c3f47d4b6a4"
+URL = "https://translate.yandex.net/api/v1.5/tr.json/translate?key={APIKey}&text={text}&lang=ja&format=html"
 
 # Jsonファイルを読み取ります
 def read_params_from_json(path):
   f = open(path)
   df = json.loads(f.read())
   f.close()
-  # pprint.pprint(df, width=40)
-
   return df
 
 
 # JSONファイルに書き出します。
 def write_params_to_json(path, data):
-  fp = open('/'.join([path, 'translate.json']), 'w')
+  fp = open('/'.join([path, 'translate1.json']), 'w')
   json.dump(data, fp, cls=MyEncoder)
   fp.close()
 
@@ -60,14 +60,20 @@ if __name__ == '__main__':
   labels = resnet_labels['labels']
   result = {}
 
-  name = "hello"
-  url = api.format(text=name)
+  url = api.format(text="hello")
   r = requests.get(url)
-  print(r.text)
+  text = json.loads(r.text)
+  print(text)
+
+  # name = 'cat'
+  # url = URL.format(APIKey=APIKey, text=name)
+  # r = requests.get(url)
+  # text = json.loads(r.text)
+  # print(text["text"][0])
 
   # for label in labels:
   #   name = str(label['name']).replace('_', ' ').replace('/', ' ')
-  #   url = api.format(text=name)
+  #   url = URL.format(APIKey=APIKey, text=name)
   #   r = requests.get(url)
   #   try:
   #     text = json.loads(r.text)
@@ -75,24 +81,25 @@ if __name__ == '__main__':
   #     result[label['name']] = "error"
   #     print(label['name'], "error")
   #   else:
-  #     result[label['name']] = text["text"]
-  #     print(label['name'], text["text"])
-  #
-  # for i in range(0, 999):
-  #   list = imagenet_labels['{0}'.format(i)]
-  #   for label in list:
-  #     name = str(label.replace(' ', '_'))
-  #     url = api.format(text=label)
-  #     r = requests.get(url)
-  #
-  #     try:
-  #       text = json.loads(r.text)
-  #     except Exception as e:
-  #       result[name] = "error"
-  #       print(name, "error")
-  #     else:
-  #       result[name] = text["text"]
-  #       print(name, text["text"])
+  #     result[label['name']] = text["text"][0]
+  #     print(label['name'], text["text"][0])
+
+  for i in range(100, 600):
+    list = imagenet_labels['{0}'.format(i)]
+    for label in list:
+      name = str(label.replace(' ', '_'))
+      # url = URL.format(APIKey=APIKey, text=name)
+      url = api.format(text=name)
+      r = requests.get(url)
+
+      try:
+        text = json.loads(r.text)
+      except Exception as e:
+        result[name] = "error"
+        print("{\"{name}\":\"{text}\"}".format(name=name, text="error"))
+      else:
+        result[name] = text["text"]
+        print("|\"{name}\":\"{text}\"?".format(name=name, text=text["text"]))
 
   pprint.pprint(result)
   print('finished')
